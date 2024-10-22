@@ -135,36 +135,25 @@ a {
     text-align: center;
 }
 
-.columns {
-    display: flex;
-    justify-content: space-between;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     max-width: 600px;
     gap: 40px;
 }
 
-.column {
-    flex-grow: 1;
-}
-
-.columns p {
+.grid-item {
     text-align: justify;
     line-height: 1.5;
 }
 
 /* for smaller screens */
 @media (max-width: 768px) {
-    .columns {
-        flex-direction: column; /* stack the columns vertically */
-        gap: 20px; /* adjust the gap for better spacing */
-    }
-    
-    .column {
-        max-width: 100%; /* ensure full width of the container */
-    }
-    
-    .two-col-container {
-        padding: 50px; /* match padding to bio */
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        padding: 50px
     }
 }
 
