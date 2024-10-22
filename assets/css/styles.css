@@ -24,6 +24,10 @@ p {
     font-family: 'Public Sans', sans-serif;
 }
 
+a {
+    color: black;
+}
+
 /*--======= NAV BAR =======--*/
 .navbar {
     position: fixed;
@@ -47,7 +51,6 @@ p {
 }
   
 .navbar ul li a {
-    color: black;
     text-decoration: none;
     font-size: 18px;
     font-family: 'Public Sans', sans-serif;
@@ -84,27 +87,85 @@ p {
     animation: fadeIn 3s ease-in;
 }
 
-.about-page {
+/*--======= ABOUT PAGE =======--*/
+.bio {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 10px;
     padding: 50px;
     text-align: justify;
 }
 
-.about-page h2 {
+.bio h2 {
     font-family: 'Poppins', sans-serif;
     color: #0029FF;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.about-page p {
+.bio p {
     margin-bottom: 10px;
     max-width: 600px;
     width: 100%;
     margin: 10px 0;
-    line-height: 1.6;
+    line-height: 1.5;
+}
+
+.bio a:hover {
+    color: #0029FF;
+}
+
+.two-col-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* match bio */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.two-col-container h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #0029FF;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    gap: 40px;
+}
+
+.column {
+    flex-grow: 1;
+}
+
+.columns p {
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* for smaller screens */
+@media (max-width: 768px) {
+    .columns {
+        flex-direction: column; /* stack the columns vertically */
+        gap: 20px; /* adjust the gap for better spacing */
+    }
+    
+    .column {
+        max-width: 100%; /* ensure full width of the container */
+    }
+    
+    .two-col-container {
+        padding: 50px; /* match padding to bio */
+    }
 }
 
 /*--======= FOOTER =======--*/
