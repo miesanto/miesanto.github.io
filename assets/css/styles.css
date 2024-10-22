@@ -1,0 +1,103 @@
+/* fade animation for landing page */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*--======= NAV BAR =======--*/
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    display: inline-block;
+}
+  
+.navbar ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+  
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Public Sans', sans-serif;
+}
+  
+.navbar ul li a:hover {
+    color: #0029FF;
+}
+
+/*--======= LANDING PAGE =======--*/
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.landing-page img.profile-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.landing-page h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    animation: fadeIn 3s ease-in;
+}
+
+.landing-page p {
+    font-family: 'Public Sans', sans-serif;
+}
+
+/*--======= FOOTER =======--*/
+footer {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links a img {
+    width: 30px;
+    height: 30px;
+}
+
+footer a {
+    text-decoration: none;
+}
