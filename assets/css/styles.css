@@ -117,43 +117,40 @@ a {
     color: #0029FF;
 }
 
-.two-col-container {
+.hobbies {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 600px; /* match bio */
-    margin-left: auto;
-    margin-right: auto;
+    padding: 50px;
 }
 
-.two-col-container h2 {
+.hobbies h2 {
     font-family: 'Poppins', sans-serif;
     color: #0029FF;
-    margin-top: 30px;
     margin-bottom: 10px;
     text-align: center;
 }
 
-.grid-container {
+.hobbies-grid {
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    max-width: 600px;
     gap: 40px;
+    max-width: 600px;
+    width: 100%;
 }
 
-.grid-item {
+.hobby {
+    font-family: 'Public Sans', sans-serif;
     text-align: justify;
     line-height: 1.5;
 }
 
-/* for smaller screens */
+/* responsiveness for smaller screens */
 @media (max-width: 768px) {
-    .grid-container {
+    .hobbies-grid {
         grid-template-columns: 1fr;
         grid-gap: 20px;
-        padding: 50px
     }
 }
 
