@@ -3,6 +3,15 @@ blob: #c8ff00 10%, #ff00f2
 og blue theme: 0029FF
 809BCE 95B8D1 EAC4D5 62BFED
 #8FB8ED 10%, #F1E3F3
+#8FB8ED 10%, #ff00f2
+#85C7F2, #FCEC52
+
+F2CEE6, 082D0F, C3DBC5, E8DCB9
+
+new theme
+9fa450 --> green
+fdf9eb --> bg
+
 */
 
 * {
@@ -32,7 +41,7 @@ a {
     width: 300px;
     height: 300px;
     border-radius: 100%;
-    background-image: linear-gradient(#8FB8ED 10%, #ff00f2);
+    background-image: linear-gradient(#85C7F2, #D8A7CA);
     filter: blur(100px);
     transition: all 450ms ease-out;
     position: fixed;
@@ -45,12 +54,12 @@ a {
 
 /*--======= NAV BAR =======--*/
 .navbar {
+    background-color: white;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     text-align: center;
-    background-color: white;
     padding: 10px 0;
 }
 
@@ -112,8 +121,26 @@ a {
         opacity: 0;
     }
 }
-  
-/*--======= ABOUT PAGE =======--*/
+
+.work-button {
+    margin-top: 30px;
+    background-color: #9BA2FF;
+    color: white;
+    border: none;
+    width: 250px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3 ease;
+}
+
+.work-button:hover {
+    background-color: #D8A7CA;
+}
+
+/*--======= BIO SECTION (LANDING PAGE) =======--*/
 .bio {
     display: flex;
     flex-direction: column;
@@ -143,6 +170,7 @@ a {
     color: #0029FF;
 }
 
+/*--======= ABOUT PAGE =======--*/
 .hobbies {
     display: flex;
     flex-direction: column;
@@ -182,7 +210,6 @@ a {
 
 /*--======= FOOTER =======--*/
 footer {
-    background-color: white;
     padding: 20px 0;
     text-align: center;
 }

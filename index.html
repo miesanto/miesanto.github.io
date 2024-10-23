@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans&display=swap" rel="stylesheet">
   </head>
+  
   <body>
     <!--======= NAV BAR =======-->
     <header>
@@ -21,8 +22,8 @@
         <ul>
           <li><a href="index.html" class="active">home</a></li>
           <li><a href="#">about</a></li>
-          <li><a href="#">work</a></li>
-          <li><a href="#">writing</a></li>
+          <li><a href="work.html">work</a></li>
+          <!-- <li><a href="#">writing</a></li> -->
         </ul>
       </nav>
     </header>
@@ -39,7 +40,7 @@
       <p><i>computer engineering student</i> ★ <i>miesanto7@gmail.com</i></p>
     </section>
 
-    <!--======= ABOUT PAGE CONTENT =======-->
+    <!--======= ABOUT CONTENT =======-->
     <section class="bio">
       <h2>hello!</h2>
       <p>I'm <b>Mia Santos</b>, a <b>fourth-year computer engineering major</b> with a concentration in computer systems.
@@ -51,48 +52,68 @@
           <b>EQ in the workplace is critical</b>, and I hope to foster an environment that embraces <b>empathy</b>, <b>honesty</b>, 
           and <b>accountability</b> wherever I go.
       </p>
-      <p>⭐️<i>I am seeking internship and new-grad roles in product/project/program management and software/hardware engineering.
-          Let's chat on <a href="https://linkedin.com/in/miaesantos/" target="_blank">LinkedIn</a>.</i>
+      <p>⭐️<i>I am seeking internship and new-grad roles in product/project/program management and software/hardware engineering.</i>
       </p>
+
+      <!-- link to work tab -->
+      <a href="work.html"><button class="work-button">check out my work ➔</button></a>
     </section>
 
     <!--======= FOOTER =======-->
     <footer>
       <div class="footer-links">
-        <a href="#" target="_blank">
+        <a href="https://github.com/miesanto" target="_blank">
           <img src="assets\images\githubicon.png" alt="GitHub">
         </a>
-        <a href="#" target="_blank">
+        <a href="https://linkedin.com/in/miaesantos/" target="_blank">
           <img src="assets\images\linkedin.png" alt="LinkedIn">
         </a>
       </div>
     </footer>
 
+    <!--======= SCRIPTS =======-->
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         const text = "MIA SANTOS";
         let index = 0;
         const typewriterElement = document.getElementById("typewriter");
         const blinkBlank = document.getElementById("blink-blank");
+        const typingSpeed = 200;
+        const pauseLength = 4000; // milliseconds
+        const deleteSpeed = 100;
     
         function typeWriter() {
           if (index < text.length) {
             typewriterElement.textContent += text.charAt(index);
             index++;
-            setTimeout(typeWriter, 200); // typing speed (milliseconds)
+            setTimeout(typeWriter, typingSpeed);
           }
           else {
-            blinkBlank.classList.add('blink');
+            blinkBlank.classList.add('blink'); // start blinking once text is fully typed
+            setTimeout(deleteWriter, pauseLength); // delay before deleting
           }
         }
-    
+
+        function deleteWriter() {
+          blinkBlank.classList.remove('blink'); // stop blinking while deleting
+          if (index > 0) {
+            typewriterElement.textContent = text.substring(0, --index);
+            setTimeout(deleteWriter, deleteSpeed);
+          }
+          else {
+            setTimeout(function() {
+              typeWriter();
+            }, 1000);
+          }
+        }
+
         typeWriter();
       });
 
-      // Add the mousemove event for blob
+      // add the mousemove event for blob
       document.addEventListener("mousemove", function(event) {
         const blob = document.querySelector('.blob');
-        // Move the blob to follow the cursor
+        // move the blob to follow the cursor
         blob.style.transform = `translate(calc(-50% + ${event.clientX}px), calc(-50% + ${event.clientY}px))`;
       });
     </script>
