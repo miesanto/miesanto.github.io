@@ -14,6 +14,8 @@ new theme
 9fa450 --> green
 fdf9eb --> bg
 
+✷
+
 */
 
 * {
@@ -83,7 +85,8 @@ html {
 .navbar ul li a {
     text-decoration: none;
     font-size: 18px;
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
 }
   
 .navbar ul li a:hover {
@@ -128,7 +131,7 @@ html {
     }
 }
 
-.work-button {
+.work-button, .resume-button {
     margin-top: 30px;
     background-color: #9BA2FF;
     color: white;
@@ -139,10 +142,10 @@ html {
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    transition: background-color 0.3 ease;
+    transition: background-color 0.3s ease;
 }
 
-.work-button:hover {
+.work-button:hover, .resume-button:hover {
     background-color: #ea95d2;
 }
 
@@ -153,6 +156,7 @@ html {
     align-items: center;
     margin-top: 10px;
     padding: 50px;
+    text-align: justify;
 }
 
 .bio h2 {
@@ -176,8 +180,42 @@ html {
 }
 
 /*--======= ABOUT PAGE =======--*/
+.gen-about {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.gen-about-container {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+    gap: 40px;
+}
+
+.about-text {
+    width: 60%;
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.about-text h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #0029FF;
+    margin-bottom: 10px;
+}
+
+.about-photo {
+    width: 40%;
+    height: auto;
+}
+
 .hobbies {
     display: flex;
+    margin-top: 40px;
     flex-direction: column;
     align-items: center;
     padding: 50px;
@@ -191,7 +229,6 @@ html {
 }
 
 .hobbies-grid {
-    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -207,6 +244,19 @@ html {
 
 /* responsiveness for smaller screens */
 @media (max-width: 768px) {
+    .gen-about-container {
+        flex-direction: column;
+    }
+
+    .about-photo {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
     .hobbies-grid {
         grid-template-columns: 1fr;
         grid-gap: 20px;
