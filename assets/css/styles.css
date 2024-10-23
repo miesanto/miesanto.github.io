@@ -8,6 +8,8 @@ og blue theme: 0029FF
 
 F2CEE6, 082D0F, C3DBC5, E8DCB9
 
+button hover: ea95d2
+
 new theme
 9fa450 --> green
 fdf9eb --> bg
@@ -50,6 +52,10 @@ a {
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
     z-index: -1;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /*--======= NAV BAR =======--*/
@@ -206,6 +212,16 @@ a {
         grid-template-columns: 1fr;
         grid-gap: 20px;
     }
+}
+
+/*--======= WORK PAGE =======--*/
+.work-experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding: 50px;
+    text-align: justify;
 }
 
 /*--======= FOOTER =======--*/

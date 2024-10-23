@@ -20,9 +20,10 @@
     <header>
       <nav class="navbar">
         <ul>
-          <li><a href="index.html" class="active">home</a></li>
-          <li><a href="#">about</a></li>
-          <li><a href="work.html">work</a></li>
+          <li><a href="#home">home</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#work">work</a></li>
+          <li><a href="#work">contact</a></li>
           <!-- <li><a href="#">writing</a></li> -->
         </ul>
       </nav>
@@ -31,7 +32,7 @@
     <div class="blob"></div>
 
     <!--======= MAIN LANDING PAGE CONTENT =======-->
-    <section class="landing-page">
+    <section class="landing-page" id="home">
       <img src="assets\images\miesanto_sitepfp.jpg" alt="Profile Picture" class="profile-image">
       <h1 class="typewriter-container">
         <span class="typewriter" id="typewriter"></span>
@@ -41,23 +42,10 @@
     </section>
 
     <!--======= ABOUT CONTENT =======-->
-    <section class="bio">
-      <h2>hello!</h2>
-      <p>I'm <b>Mia Santos</b>, a <b>fourth-year computer engineering major</b> with a concentration in computer systems.
-          Since beginning at the <b>University of California, Santa Cruz</b>, I have framed my academic goals around my 
-          <b>dream</b> of working on <b>multidisciplinary technological projects that uplift communities</b>.
-      </p>
-      <p>I prioritize <b>harmonious relationships</b> and act on <b>careful analysis</b> of the little details, <b>striving for 
-          perfection</b> in every task I undertake without compromising the connections I have built over time. 
-          <b>EQ in the workplace is critical</b>, and I hope to foster an environment that embraces <b>empathy</b>, <b>honesty</b>, 
-          and <b>accountability</b> wherever I go.
-      </p>
-      <p>⭐️<i>I am seeking internship and new-grad roles in product/project/program management and software/hardware engineering.</i>
-      </p>
+    <div id="about"></div>
 
-      <!-- link to work tab -->
-      <a href="work.html"><button class="work-button">check out my work ➔</button></a>
-    </section>
+    <!--======= WORK CONTENT =======-->
+    <div id="work"></div>
 
     <!--======= FOOTER =======-->
     <footer>
@@ -115,6 +103,25 @@
         const blob = document.querySelector('.blob');
         // move the blob to follow the cursor
         blob.style.transform = `translate(calc(-50% + ${event.clientX}px), calc(-50% + ${event.clientY}px))`;
+      });
+
+      // function to load external HTML into a specific element
+      function loadHTML(sectionID, filePath) {
+        fetch(filePath)
+          .then(response => {
+            if(!response.ok) throw new Error('Error loading ' + filePath);
+            return response.text();
+          })
+          .then(data => {
+            document.getElementById(sectionID).innerHTML = data;
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+      // call function to load about section
+      document.addEventListener("DOMContentLoaded", function() {
+        loadHTML("about", "about.html");
+        loadHTML("work", "work.html");
       });
     </script>
 
