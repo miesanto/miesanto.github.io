@@ -41,7 +41,7 @@ a {
     width: 300px;
     height: 300px;
     border-radius: 100%;
-    background-image: linear-gradient(#85C7F2, #D8A7CA);
+    background-image: linear-gradient(#D8A7CA 10%, #0029ff);
     filter: blur(100px);
     transition: all 450ms ease-out;
     position: fixed;
@@ -137,7 +137,7 @@ a {
 }
 
 .work-button:hover {
-    background-color: #D8A7CA;
+    background-color: #ea95d2;
 }
 
 /*--======= BIO SECTION (LANDING PAGE) =======--*/
