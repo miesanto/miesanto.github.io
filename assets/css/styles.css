@@ -1,3 +1,10 @@
+/* colors saved
+blob: #c8ff00 10%, #ff00f2
+og blue theme: 0029FF
+809BCE 95B8D1 EAC4D5 62BFED
+#8FB8ED 10%, #F1E3F3
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +23,24 @@ p {
 
 a {
     color: black;
+}
+
+.blob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-image: linear-gradient(#8FB8ED 10%, #ff00f2);
+    filter: blur(100px);
+    transition: all 450ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+    z-index: -1;
 }
 
 /*--======= NAV BAR =======--*/
@@ -76,7 +101,6 @@ a {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-size: 48px;
-    color: #0029FF;
 }
 
 .blink {
