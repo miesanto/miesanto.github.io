@@ -30,7 +30,10 @@
     <!--======= MAIN LANDING PAGE CONTENT =======-->
     <section class="landing-page">
       <img src="assets\images\miesanto_sitepfp.jpg" alt="Profile Picture" class="profile-image">
-      <h1>MIA SANTOS</h1>
+      <h1 class="typewriter-container">
+        <span class="typewriter" id="typewriter"></span>
+        <span class="blank" id="blink-blank">_</span>
+      </h1>
       <p><i>computer engineering student</i> ★ <i>miesanto7@gmail.com</i></p>
     </section>
 
@@ -45,6 +48,28 @@
         </a>
       </div>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const text = "MIA SANTOS";
+        let index = 0;
+        const typewriterElement = document.getElementById("typewriter");
+        const blinkBlank = document.getElementById("blink-blank");
+    
+        function typeWriter() {
+          if (index < text.length) {
+            typewriterElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 200); // typing speed (milliseconds)
+          }
+          else {
+            blinkBlank.classList.add('blink');
+          }
+        }
+    
+        typeWriter();
+      });
+    </script>
 
   </body>
 </html>

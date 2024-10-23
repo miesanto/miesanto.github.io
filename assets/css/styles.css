@@ -1,13 +1,3 @@
-/* fade animation for landing page */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -81,12 +71,24 @@ a {
     margin-bottom: 20px;
 }
 
-.landing-page h1 {
+.typewriter-container {
+    display: flex;
+    align-items: center;
     font-family: 'Poppins', sans-serif;
     font-size: 48px;
-    animation: fadeIn 3s ease-in;
+    color: #0029FF;
 }
 
+.blink {
+    animation: blink-animation 1s steps(1, end) infinite;
+}
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+  
 /*--======= ABOUT PAGE =======--*/
 .bio {
     display: flex;
