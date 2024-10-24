@@ -241,16 +241,32 @@ html {
 */
 
 .tab-link {
-    margin-top: 30px;
+    margin-top: 1.375rem;
     font-family: 'PP Neue Montreal Medium', sans-serif;
     font-size: 1.25rem;
     transition: color 0.3 ease;
 }
 
-.tab-link:hover {
+.tab-link div {
+    margin-top: .5rem;
+}
+
+.tab-link a:hover {
     /* color: #FF9F1C; */
     /* color: #804E49; */
     color: #3AB795;
+}
+
+/* fade in */
+.bio p, .tab-link div {
+    opacity: 0;
+    transform: translateY(20px); /* slight upward */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.bio p.fade-in, .tab-link div.fade-in {
+    opacity: 1;
+    transform: translateY(0); /* reset translation */
 }
 
 /*--======= GEN FACTS (ABOUT PAGE) =======--*/

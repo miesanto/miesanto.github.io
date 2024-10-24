@@ -39,7 +39,7 @@
         <span class="blank" id="blink-blank">_</span>
       </h1>
       <p><i>computer engineering student</i></p>
-      <p><a href="#bio"><i>get to know me ↘</i></a></p>
+      <p><a href="#bio"><i>fancy seeing you here ↘</i></a></p>
     </section>
 
     <!--======= ABOUT CONTENT =======-->
@@ -47,19 +47,23 @@
       <h2>hello!</h2>
       <h3>I'm <b>Mia Santos</b>, a <b>fourth-year computer engineering major</b> with a concentration in computer systems.</h3>
       <p> Since beginning at the <b>University of California, Santa Cruz</b>, I have framed my academic goals around my 
-          <b>dream</b> of working on <b>multidisciplinary technological projects that uplift communities</b>.
+        <b>dream</b> of working on <b>multidisciplinary technological projects that uplift communities</b>.
       </p>
       <p>I prioritize <b>harmonious relationships</b> and act on <b>careful analysis</b> of the little details, <b>striving for 
-          perfection</b> in every task I undertake without compromising the connections I have built over time. 
-          <b>EQ in the workplace is critical</b>, and I hope to foster an environment that embraces <b>empathy</b>, <b>honesty</b>, 
-          and <b>accountability</b> wherever I go.
+        perfection</b> in every task I undertake without compromising the connections I have built over time. 
+        <b>EQ in the workplace is critical</b>, and I hope to foster an environment that embraces <b>empathy</b>, <b>honesty</b>, 
+        and <b>accountability</b> wherever I go.
       </p>
       <p>🔭 I am seeking internship and new-grad roles in project/program management, product design/management, 
         and software/hardware engineering
       </p>
       <p>📧 Contact me at miesanto7@gmail.com</p>
 
-      <a href="#" class="tab-link">Check Out My Work ↘</a> <!-- link to work tab -->
+      <!-- links to other tabs -->
+      <div class="tab-link">
+        <div><a href="#">Check Out My Work ↘</a></div> <!-- link to work tab -->
+        <div><a href="#">Learn More About Me ↘</a></div> <!-- link to about tab -->
+      </div>
     </section>
 
     <!--======= FOOTER =======-->
@@ -113,6 +117,23 @@
 
         typeWriter();
       });
+
+      // function to handle the fade-in effect when paragraphs are in view
+      function fadeInOnScroll() {
+        const elements = document.querySelectorAll('.bio p, .tab-link div');
+        elements.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 50) { // trigger fade-in
+            element.classList.add('fade-in');
+          }
+        });
+      }
+
+      // listen for scroll events
+      window.addEventListener('scroll', fadeInOnScroll);
+      
+      // trigger on page load
+      fadeInOnScroll();
 
       /*
       // add the mousemove event for blob
