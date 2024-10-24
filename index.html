@@ -12,23 +12,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Public+Sans&display=swap" rel="stylesheet"> -->
   </head>
   
   <body>
     <!--======= NAV BAR =======-->
     <header>
-      <nav class="navbar">
+      <nav class="navbar-home">
         <ul>
-          <li><a href="index.html" class="active"><u>home</u></a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="#">work</a></li>
+          <li><a href="index.html" class="active"><u>Home</u></a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Work</a></li>
           <!-- <li><a href="#">writing</a></li> -->
         </ul>
       </nav>
     </header>
 
-    <div class="blob"></div>
+    <!-- <div class="blob"></div> -->
 
     <!--======= MAIN LANDING PAGE CONTENT =======-->
     <section class="landing-page">
@@ -39,14 +39,14 @@
         <span class="blank" id="blink-blank">_</span>
       </h1>
       <p><i>computer engineering student</i></p>
-      <p><i>based in california</i></p>
+      <p><a href="#bio"><i>get to know me ↘</i></a></p>
     </section>
 
     <!--======= ABOUT CONTENT =======-->
-    <section class="bio">
+    <section class="bio" id="bio">
       <h2>hello!</h2>
-      <p>I'm <b>Mia Santos</b>, a <b>fourth-year computer engineering major</b> with a concentration in computer systems.
-          Since beginning at the <b>University of California, Santa Cruz</b>, I have framed my academic goals around my 
+      <h3>I'm <b>Mia Santos</b>, a <b>fourth-year computer engineering major</b> with a concentration in computer systems.</h3>
+      <p> Since beginning at the <b>University of California, Santa Cruz</b>, I have framed my academic goals around my 
           <b>dream</b> of working on <b>multidisciplinary technological projects that uplift communities</b>.
       </p>
       <p>I prioritize <b>harmonious relationships</b> and act on <b>careful analysis</b> of the little details, <b>striving for 
@@ -59,8 +59,7 @@
       </p>
       <p>📧 Contact me at miesanto7@gmail.com</p>
 
-      <!-- link to work tab -->
-      <a href="#"><button class="work-button">check out my work ➜</button></a>
+      <a href="#" class="tab-link">Check Out My Work ↘</a> <!-- link to work tab -->
     </section>
 
     <!--======= FOOTER =======-->
@@ -72,6 +71,7 @@
         <a href="https://linkedin.com/in/miaesantos/" target="_blank">
           <img src="assets\images\linkedin.png" alt="LinkedIn">
         </a>
+        <a href="#">back to top ^</a>
       </div>
     </footer>
 
@@ -114,12 +114,14 @@
         typeWriter();
       });
 
+      /*
       // add the mousemove event for blob
       document.addEventListener("mousemove", function(event) {
         const blob = document.querySelector('.blob');
         // move the blob to follow the cursor
         blob.style.transform = `translate(calc(-50% + ${event.clientX}px), calc(-50% + ${event.clientY}px))`;
       });
+      */
     </script>
 
   </body>

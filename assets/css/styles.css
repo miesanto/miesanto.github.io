@@ -1,22 +1,38 @@
-/* colors saved
-blob: #c8ff00 10%, #ff00f2
-og blue theme: 0029FF
-809BCE 95B8D1 EAC4D5 62BFED
-#8FB8ED 10%, #F1E3F3
-#8FB8ED 10%, #ff00f2
-#85C7F2, #FCEC52
+/*
+color palette ideas
+0A0F0D 2A7F62 DEC0F1 EFF2C0 3772FF, maybe E5F9E0 06AED5
 
-F2CEE6, 082D0F, C3DBC5, E8DCB9
-
-button hover: ea95d2
-
-new theme
-9fa450 --> green
-fdf9eb --> bg
+original
+0029FF
 
 ✷
 
 */
+
+/*--======= FONTS =======--*/
+
+@font-face {
+    font-family: 'PP Neue Montreal Book';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/assets/css/fonts/ppneuemontreal-book.woff') format('woff'), url('/assets/css/fonts/ppneuemontreal-book.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'PP Neue Montreal Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/assets/css/fonts/ppneuemontreal-medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'PP Neue Montreal Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/assets/css/fonts/ppneuemontreal-bold.woff') format('woff');
+}
+
+/*--======= BASICS =======--*/
 
 * {
     margin: 0;
@@ -24,18 +40,33 @@ fdf9eb --> bg
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+:root {
+    /* colors */
+    --color-bg-green: #2A7F62;
+    --color-bg-isabelline: #F2EFEA;
+    --color-fg-cream: #EFF2C0;
+    --color-fg-main: #0A0F0D;
+    --color-fg-crayola: #3772FF;
+    --color-fg-mauve: #DEC0F1;
 }
 
-p {
-    font-family: 'Public Sans', sans-serif;
+h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: 'PP Neue Montreal Medium', sans-serif;
+    margin-bottom: 10px;
 }
 
 a {
-    color: black;
+    color: var(--color-fg-main)
+}
+
+p {
+    font-family: 'PP Neue Montreal Book', sans-serif;
+    color: var(--color-fg-main);
 }
 
 .blob {
@@ -60,52 +91,63 @@ html {
     scroll-behavior: smooth;
 }
 
-/*--======= NAV BAR =======--*/
-.navbar {
-    background-color: white;
-    position: fixed;
+/*--======= NAV BARS =======--*/
+.navbar, .navbar-home {
+    /* background-color: #DBD56E; */
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
-    text-align: center;
-    padding: 10px 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end; /* push to the right */
+    box-sizing: border-box;
 }
 
-.navbar ul {
+.navbar ul, .navbar-home ul {
     list-style-type: none;
     margin: 0;
-    display: inline-block;
+    padding: 0;
+    display: flex; /* horizontal layout */
+    gap: 20px; /* adds space between links */
 }
   
-.navbar ul li {
-    display: inline-block;
-    margin: 0 20px;
-}
-  
-.navbar ul li a {
+.navbar ul li a, .navbar-home ul li a {
     text-decoration: none;
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    transition: color 0.3s ease;
+    font-family: 'PP Neue Montreal Medium', sans-serif;
+    padding: 5px 10px;
+    transition: color 0.3 ease;
+}
+
+/*--======= LANDING PAGE =======--*/
+.navbar-home {
+    background-color: var(--color-bg-green);
 }
   
-.navbar ul li a:hover {
-    color: #0029FF;
+.navbar-home ul li a:hover {
+    color: var(--color-fg-cream)
 }
 
 /* style for the active/current page link */
-.navbar ul li a.active {
-    color: #0029FF;
-  }
+.navbar-home ul li a.active {
+    color: var(--color-fg-cream);
+}
 
-/*--======= LANDING PAGE =======--*/
 .landing-page {
+    background-color: var(--color-bg-green);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+}
+
+.landing-page a {
+    transition: color 0.3 ease;
+}
+
+.landing-page a:hover {
+    color: var(--color-fg-mauve);
 }
 
 .landing-page img.profile-image {
@@ -118,7 +160,8 @@ html {
     display: flex;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 48px;
+    font-size: 3rem;
+    color: var(--color-fg-cream);
 }
 
 .blink {
@@ -132,8 +175,55 @@ html {
 }
 
 .work-button, .resume-button {
+}
+
+.work-button:hover, .resume-button:hover {
+}
+
+/*--======= BIO SECTION (LANDING PAGE) =======--*/
+.bio {
+    background-color: var(--color-bg-isabelline);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* flex alignment adjustment */
+    padding: 80px;
+}
+
+.bio h2 {
+    /* color: #6184D8; */
+    color: var(--color-fg-crayola);
     margin-top: 30px;
-    background-color: #9BA2FF;
+    font-size: 1.75rem;
+}
+
+.bio h3 {
+    /* color: #0A0F0D #272727; */
+    color: var(--color-fg-main);
+    max-width: 60%;
+    font-size: 1.75rem;
+}
+
+.bio p {
+    margin-bottom: 10px;
+    max-width: 60%;
+    line-height: 1.25;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .bio h2, .bio h3, .bio p {
+        max-width: 90%;
+    }
+
+    .bio {
+        padding: 40px;
+    }
+}
+
+/*
+.work-button {
+    margin-top: 30px;
+    background-color: #0A0F0D;
     color: white;
     border: none;
     width: 250px;
@@ -141,148 +231,82 @@ html {
     border-radius: 30px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 16px; 
     transition: background-color 0.3s ease;
 }
 
-.work-button:hover, .resume-button:hover {
+.work-button:hover {
     background-color: #ea95d2;
 }
+*/
 
-/*--======= BIO SECTION (LANDING PAGE) =======--*/
-.bio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    padding: 50px;
-    text-align: justify;
-}
-
-.bio h2 {
-    font-family: 'Poppins', sans-serif;
-    color: #0029FF;
+.tab-link {
     margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: center;
+    font-family: 'PP Neue Montreal Medium', sans-serif;
+    font-size: 1.25rem;
+    transition: color 0.3 ease;
 }
 
-.bio p {
-    margin-bottom: 10px;
-    max-width: 600px;
-    width: 100%;
-    margin: 10px 0;
-    line-height: 1.5;
+.tab-link:hover {
+    /* color: #FF9F1C; */
+    /* color: #804E49; */
+    color: #3AB795;
 }
 
-.bio a:hover {
-    color: #0029FF;
-}
-
-/*--======= ABOUT PAGE =======--*/
+/*--======= GEN FACTS (ABOUT PAGE) =======--*/
 .gen-about {
-    display: flex;
-    justify-content: center;
-    padding: 50px;
 }
 
 .gen-about-container {
-    display: flex;
-    margin-top: 40px;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
-    gap: 40px;
 }
 
 .about-text {
-    width: 60%;
-    font-family: 'Public Sans', sans-serif;
-    line-height: 1.5;
-    text-align: justify;
 }
 
 .about-text h2 {
-    font-family: 'Poppins', sans-serif;
-    color: #0029FF;
-    margin-bottom: 10px;
 }
 
 .about-photo {
-    width: 40%;
-    height: auto;
 }
 
 .hobbies {
-    display: flex;
-    margin-top: 40px;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
 }
 
 .hobbies h2 {
-    font-family: 'Poppins', sans-serif;
-    color: #0029FF;
-    margin-bottom: 10px;
-    text-align: center;
 }
 
 .hobbies-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 600px;
-    width: 100%;
 }
 
 .hobby {
-    font-family: 'Public Sans', sans-serif;
-    text-align: justify;
-    line-height: 1.5;
 }
 
 /* responsiveness for smaller screens */
 @media (max-width: 768px) {
-    .gen-about-container {
-        flex-direction: column;
-    }
 
-    .about-photo {
-        width: 50%;
-        margin-bottom: 20px;
-    }
-
-    .about-text {
-        width: 100%;
-    }
-
-    .hobbies-grid {
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
-    }
 }
 
 /*--======= WORK PAGE =======--*/
 .work-experience {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    padding: 50px;
-    text-align: justify;
 }
 
 /*--======= FOOTER =======--*/
+
 footer {
-    padding: 20px 0;
-    text-align: center;
+    /* background-color: #DBD56E; */
+    background-color: var(--color-bg-isabelline);
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end; /* push to the right */
+    box-sizing: border-box;
 }
 
 .footer-links {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 5px 10px;
     gap: 20px;
 }
 
@@ -293,4 +317,5 @@ footer {
 
 footer a {
     text-decoration: none;
+    font-family: 'PP Neue Montreal Medium', sans-serif;
 }
