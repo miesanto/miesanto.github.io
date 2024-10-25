@@ -62,7 +62,7 @@ h3 {
 }
 
 a {
-    color: var(--color-fg-main)
+    color: var(--color-fg-main);
 }
 
 p {
@@ -127,7 +127,7 @@ html {
 }
   
 .navbar-home ul li a:hover {
-    color: var(--color-fg-cream)
+    color: var(--color-fg-cream);
 }
 
 /* style for the active/current page link */
@@ -379,14 +379,8 @@ html {
     font-family: 'PP Neue Montreal Medium';
 }
 
-/* responsiveness for smaller screens */
-@media (max-width: 768px) {
-
-}
-
 /*--======= WORK PAGE =======--*/
-.work-experience {
-}
+
 
 /*--======= FOOTER =======--*/
 
