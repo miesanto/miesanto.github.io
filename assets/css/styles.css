@@ -69,6 +69,7 @@ p {
     color: var(--color-fg-main);
 }
 
+/*
 .blob {
     display: flex;
     justify-content: center;
@@ -84,8 +85,9 @@ p {
     left: 0;
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
-    z-index: -1;
+    z-index: 0;
 }
+*/
 
 html {
     scroll-behavior: smooth;
@@ -174,19 +176,19 @@ html {
     }
 }
 
-.work-button, .resume-button {
-}
-
-.work-button:hover, .resume-button:hover {
-}
-
 /*--======= BIO SECTION (LANDING PAGE) =======--*/
 .bio {
     background-color: var(--color-bg-isabelline);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* flex alignment adjustment */
+    /* flex-direction: column; */
+    align-items: center; /* flex alignment adjustment */
     padding: 80px;
+}
+
+.bio-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .bio h2 {
@@ -199,46 +201,16 @@ html {
 .bio h3 {
     /* color: #0A0F0D #272727; */
     color: var(--color-fg-main);
-    max-width: 60%;
+    max-width: 80%;
     font-size: 1.75rem;
 }
 
 .bio p {
     margin-bottom: 10px;
-    max-width: 60%;
+    max-width: 80%;
     line-height: 1.25;
     font-size: 1.25rem;
 }
-
-@media (max-width: 768px) {
-    .bio h2, .bio h3, .bio p {
-        max-width: 90%;
-    }
-
-    .bio {
-        padding: 40px;
-    }
-}
-
-/*
-.work-button {
-    margin-top: 30px;
-    background-color: #0A0F0D;
-    color: white;
-    border: none;
-    width: 250px;
-    padding: 12px 24px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px; 
-    transition: background-color 0.3s ease;
-}
-
-.work-button:hover {
-    background-color: #ea95d2;
-}
-*/
 
 .tab-link {
     margin-top: 1.375rem;
@@ -269,32 +241,96 @@ html {
     transform: translateY(0); /* reset translation */
 }
 
+/*--======= IPHONE (LANDING PAGE) =======--*/
+.iphone-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 500px;
+    border: 16px solid #DBD56E; /* phone case */
+    border-radius: 40px;
+    padding: 10px;
+    background: var(--color-fg-main); /* frame background */
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3); /* shadow effect */
+}
+  
+.iphone-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+  
+.iphone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .bio h2, .bio h3, .bio p {
+        max-width: 90%;
+        margin-right: 0;
+    }
+
+    .bio {
+        /* padding: 40px; */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iphone-container {
+        margin-left: 0;
+        margin-top: 40px; /* adjust positioning for smaller screens */
+    }
+}
+
 /*--======= GEN FACTS (ABOUT PAGE) =======--*/
 .gen-about {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
 }
 
 .gen-about-container {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+    gap: 40px;
 }
 
 .about-text {
-}
-
-.about-text h2 {
+    width: 60%;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 .about-photo {
+    width: 40%;
+    height: auto;
 }
 
 .hobbies {
+    padding: 80px;
 }
 
 .hobbies h2 {
+    color: var(--color-fg-crayola);
+    margin-top: 30px;
+    font-size: 1.75rem;
 }
 
 .hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 .hobby {
+    font-family: 'PP Neue Montreal Medium';
 }
 
 /* responsiveness for smaller screens */
