@@ -48,6 +48,7 @@ original
     --color-fg-main: #0A0F0D;
     --color-fg-crayola: #3772FF;
     --color-fg-mauve: #DEC0F1;
+    --color-fg-lightgreen: #3AB795;
 }
 
 h2 {
@@ -212,21 +213,22 @@ html {
     font-size: 1.25rem;
 }
 
+.bio a:hover {
+    color: var(--color-fg-crayola);
+}
+
 .tab-link {
     margin-top: 1.375rem;
     font-family: 'PP Neue Montreal Medium', sans-serif;
     font-size: 1.25rem;
-    transition: color 0.3 ease;
+}
+
+.tab-link a:hover {
+    color: var(--color-fg-lightgreen);
 }
 
 .tab-link div {
     margin-top: .5rem;
-}
-
-.tab-link a:hover {
-    /* color: #FF9F1C; */
-    /* color: #804E49; */
-    color: #3AB795;
 }
 
 /* fade in */
@@ -289,23 +291,32 @@ html {
 
 .phone-sticker {
     position: absolute;
-    top: -40px;
+    top: -60px;
     left: -70px;
-    background-color: #3AB795;
-    color: white;
-    padding: 20px 20px;
-    border-radius: 50%;
-    transform: rotate(-20deg);
     pointer-events: none;
     display: flex;
     justify-content: center;
-    font-family: 'PP Neue Montreal Medium', sans-serif;
-    font-size: 18px;
+    animation: sticker-tilt 1s steps(2) infinite;
+}
+
+.phone-sticker img {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+@keyframes sticker-tilt {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-20deg);
+    }
 }
 
 @media (max-width: 768px) {
     .bio h2, .bio h3, .bio p {
-        max-width: 90%;
+        max-width: 100%;
         margin-right: 0;
     }
 
