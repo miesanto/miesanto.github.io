@@ -21,7 +21,7 @@
       <nav class="navbar-home">
         <ul>
           <li><a href="index.html" class="active"><u>Home</u></a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="#">About</a></li>
           <li><a href="#">Work</a></li>
           <!-- <li><a href="#">writing</a></li> -->
         </ul>
@@ -68,13 +68,19 @@
       </div>
 
       <!-- iphone -->
-      <div class="iphone-container">
+      <div class="iphone-container" id="iphone">
         <div class="iphone-frame">
-          <video controls class="iphone-screen">
+          <div class="phone-sticker"><i>Life @ UCSC</i></div>
+          <video controls class="iphone-screen" id="video1">
             <source src="assets\images\tiktok2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <video controls class="iphone-screen" id="video2" style="display: none;">
+            <source src="assets\images\tiktok1_a.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
+        <div class="scroll-me" id="scroll-me">scroll me</div>
       </div>
     </section>
 
@@ -93,6 +99,14 @@
 
     <!--======= SCRIPTS =======-->
     <script>
+      /*
+      // add the mousemove event for blob
+      document.addEventListener("mousemove", function(event) {
+        const blob = document.querySelector('.blob');
+        // move the blob to follow the cursor
+        blob.style.transform = `translate(calc(-50% + ${event.clientX}px), calc(-50% + ${event.clientY}px))`;
+      });
+      */
       document.addEventListener("DOMContentLoaded", function() {
         const text = "Mia Santos";
         let index = 0;
@@ -129,7 +143,9 @@
 
         typeWriter();
       });
+    </script>
 
+    <script>
       // function to handle the fade-in effect when paragraphs are in view
       function fadeInOnScroll() {
         const elements = document.querySelectorAll('.bio p, .tab-link div');
@@ -146,16 +162,100 @@
       
       // trigger on page load
       fadeInOnScroll();
-
-      /*
-      // add the mousemove event for blob
-      document.addEventListener("mousemove", function(event) {
-        const blob = document.querySelector('.blob');
-        // move the blob to follow the cursor
-        blob.style.transform = `translate(calc(-50% + ${event.clientX}px), calc(-50% + ${event.clientY}px))`;
-      });
-      */
     </script>
 
+    <script>
+      // get references to the videos
+      const video1 = document.getElementById('video1');
+      const video2 = document.getElementById('video2');
+      const iphoneContainer = document.getElementById('iphone');
+
+      // variable to track the current video index
+      let currentVideoIndex = 0;
+      const videos = [video1, video2];
+
+      // function to show a specific video
+      const showVideo = (index) => {
+        // stop all videos
+        videos.forEach((video) => {
+          video.pause();
+          video.currentTime = 0; // reset to the beginning
+          video.style.display = 'none'; // hide the video
+        });
+
+        // show the new video
+        const newVideo = videos[index];
+        newVideo.style.display = 'block';
+        newVideo.currentTime = 0;
+        newVideo.pause();
+        currentVideoIndex =  index;
+      };
+
+      // function to handle scrolling
+      const handleScroll = (event) => {
+        // prevent default scrolling behavior
+        event.preventDefault();
+
+        // get the scroll delta
+        const delta = Math.sign(event.deltaY);
+
+        // check the direction of the scroll
+        let newIndex = currentVideoIndex + delta;
+
+        // ensure newIndex is within bounds
+        if (newIndex < 0) newIndex = 0;
+        if (newIndex >= videos.length) newIndex = video.length - 1;
+
+        // show new video if different from current
+        if (newIndex !== currentVideoIndex) {
+          showVideo(newIndex);
+        }
+      };
+
+      // add event listener for wheel scroll
+      iphoneContainer.addEventListener('wheel', handleScroll);
+
+      // handle autoplay when videos end
+      videos.forEach((video) => {
+        video.addEventListener('ended', () => {
+          video.currentTime = 0;
+          video.play();
+        });
+      });
+
+    </script>
+
+    <script>
+      const iphone = document.getElementById('iphone');
+      const scrollMe = document.getElementById('scroll-me');
+      const videoContainer = document.querySelector('.iphone-frame');
+
+      iphone.addEventListener('mouseenter', () => {
+        scrollMe.style.display = 'flex';
+      });
+
+      iphone.addEventListener('mouseleave', () => {
+        scrollMe.style.display = 'none';
+      });
+
+      // track mouse movement
+      iphone.addEventListener('mousemove', (event) => {
+        const rect = iphone.getBoundingClientRect();
+        const mouseY = event.clientY - rect.top;
+
+        scrollMe.style.left = `${event.clientX - rect.left - 50}px`; // center circle on cursor
+        scrollMe.style.top = `${event.clientY - rect.top - 50}px`; // center circle on cursor
+
+        const videoBottom = videoContainer.offsetHeight;
+
+        // hide circle if near bottom of the video
+        if (mouseY > videoBottom - 50) {
+          scrollMe.style.display = 'none';
+        }
+        else {
+          scrollMe.style.display = 'flex';
+        }
+      });
+    </script>
   </body>
 </html>

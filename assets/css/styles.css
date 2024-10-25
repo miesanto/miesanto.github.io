@@ -244,6 +244,7 @@ html {
 /*--======= IPHONE (LANDING PAGE) =======--*/
 .iphone-container {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     width: 250px;
@@ -259,6 +260,8 @@ html {
     width: 100%;
     height: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
   
 .iphone-screen {
@@ -266,6 +269,38 @@ html {
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+}
+
+.scroll-me {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-fg-crayola);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family: 'PP Neue Montreal Book', sans-serif;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.phone-sticker {
+    position: absolute;
+    top: -40px;
+    left: -70px;
+    background-color: #3AB795;
+    color: white;
+    padding: 20px 20px;
+    border-radius: 50%;
+    transform: rotate(-20deg);
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    font-family: 'PP Neue Montreal Medium', sans-serif;
+    font-size: 18px;
 }
 
 @media (max-width: 768px) {
