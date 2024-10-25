@@ -250,7 +250,7 @@ html {
     height: 500px;
     border: 16px solid #DBD56E; /* phone case */
     border-radius: 40px;
-    padding: 10px;
+    padding: 5px;
     background: var(--color-fg-main); /* frame background */
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3); /* shadow effect */
 }
@@ -259,12 +259,12 @@ html {
     width: 100%;
     height: 100%;
     position: relative;
-    overflow: hidden;
 }
   
 .iphone-screen {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     border-radius: 20px;
 }
 
